@@ -5,6 +5,7 @@ describe 'jenkins class' do
   context 'default parameters' do
     it 'should work with no errors' do
       pp = <<-EOS
+      include archive
       include jenkins
 
       jenkins::plugin {'git-plugin':
@@ -15,7 +16,7 @@ describe 'jenkins class' do
 
       # Run it twice and test for idempotency
       apply_manifest(pp, :catch_failures => true)
-      apply_manifest(pp, :catch_failures => true)
+      apply_manifest(pp, :catch_changes => true)
     end
 
     # Check Git Plugin Installed
