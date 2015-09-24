@@ -110,8 +110,10 @@ define jenkins::plugin(
 
     if $digest_string == '' {
       $checksum = false
+      $_digest_string = undef
     } else {
       $checksum = true
+      $_digest_string = $digest_string
     }
 
 
@@ -120,7 +122,7 @@ define jenkins::plugin(
       path            => "${::jenkins::plugin_dir}/${plugin}",
       source          => $download_url,
       checksum_verify => $checksum,
-      checksum        => $digest_string,
+      checksum        => $_digest_string,
       checksum_type   => $digest_type,
       cleanup         => false,
       creates         => "${::jenkins::plugin_dir}/${plugin}",
