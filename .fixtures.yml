@@ -9,6 +9,8 @@ fixtures:
     java: "https://github.com/puppetlabs/puppetlabs-java"
     zypprepo: "https://github.com/deadpoint/puppet-zypprepo.git"
     staging: "https://github.com/nanliu/puppet-staging"
-    archive: "https://github.com/camptocamp/puppet-archive"
+    archive:
+      repo: "https://github.com/puppet-community/puppet-archive.git"
+      ref: "0.3.0"
   symlinks:
     "jenkins": "#{source_dir}"
