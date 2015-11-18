@@ -174,7 +174,7 @@ class PuppetX::Jenkins::Provider::Cli < Puppet::Provider
       :base_sleep_seconds => 1,
       :max_sleep_seconds  => cli_try_sleep,
       :rescue             => UnknownError,
-      :handler            => handler,
+      :handler            => handler
     ) do
       result = execute_with_auth(cli_cmd, auth_cmd, options)
       unless result == ''
