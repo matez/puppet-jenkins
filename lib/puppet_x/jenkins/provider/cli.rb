@@ -167,7 +167,7 @@ class PuppetX::Jenkins::Provider::Cli < Puppet::Provider
     # AuthError has bubbled up to this level it means either an ssh_private_key
     # is required and we don't have one or that one we have was rejected.
     handler = Proc.new do |exception, attempt_number, total_delay|
-      Puppet.debug("#{sname} caught #{exception.class.to_s.match(/::([^:]+)$/)[1]}; retry attempt #{attempt_number}; #{total_delay.round(3)} seconds have passed")
+      Puppet.debug("#{sname} caught #{exception.class.to_s.match(/::([^:]+)$/)[1]}; retry attempt #{attempt_number}; #{total_delay.round()} seconds have passed")
     end
     with_retries(
       :max_tries          => cli_tries,
