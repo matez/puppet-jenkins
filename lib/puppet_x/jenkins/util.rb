@@ -18,9 +18,13 @@ module PuppetX::Jenkins::Util
 
     case data
     when Hash
-      data.each_with_object({}) do |(k,v), h|
+      h = Hash.new
+
+      data.each do |(k,v)|
         h[k] = iterate(v, &block)
       end
+
+      return h
     when Array
       data.collect { |v| iterate(v, &block) }
     else
