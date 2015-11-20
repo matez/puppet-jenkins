@@ -1,3 +1,4 @@
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__),"..",".."))
 require 'puppet_x/jenkins/type/cli'
 
 PuppetX::Jenkins::Type::Cli.newtype(:jenkins_credentials) do
