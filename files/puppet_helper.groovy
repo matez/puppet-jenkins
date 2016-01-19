@@ -186,10 +186,16 @@ class Util {
   }
 } // class Util
 
-
+/**
+ * Helper class to be used when creating a new instance of FileCredentialsImpl
+ */
 public class DirectFileItem implements FileItem {
-  private final byte data[];
+  private final byte[] data;
   private final String filename;
+
+  public DirectFileItem(final String filename, final String content) {
+    this(filename, content.getBytes());
+  }
 
   public DirectFileItem(final String filename, final byte[] data) {
     this.data = data;
